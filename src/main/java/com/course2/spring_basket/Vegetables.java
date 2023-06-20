@@ -3,7 +3,7 @@ package com.course2.spring_basket;
 import org.springframework.context.annotation.Scope;
 
 import java.util.Objects;
-@Scope("Session")
+
 public class Vegetables {
     private String name;
     private Integer id;
