@@ -1,5 +1,6 @@
 package com.course2.spring_basket;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,7 +13,7 @@ import java.util.List;
 @RequestMapping(path = "/order")
 @RestController
 
-public class BasketController  {
+public class BasketController {
     private BasketService basketService;
 
     public BasketController(BasketService basketService) {
@@ -20,8 +21,8 @@ public class BasketController  {
     }
 
     @GetMapping(path = "/add")
-    public void add(@RequestParam List<Integer> artiqule) {
-       basketService.addToBasket(artiqule);
+    public void add(@RequestParam List<Integer> productID) {
+        basketService.addToBasket(productID);
 
     }
 
@@ -30,6 +31,8 @@ public class BasketController  {
         return basketService.getBasket();
 
     }
+
+
 
 
 }

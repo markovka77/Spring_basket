@@ -1,17 +1,28 @@
 package com.course2.spring_basket;
 
-import org.springframework.context.annotation.Scope;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-//@Scope(scopeName = "Prototype")
+@SessionScope
 public class BasketList {
 
 
-    List<Integer> basket = new ArrayList<>();
+    private List<Integer> basket = new ArrayList<>();
 
+    public BasketList(List<Integer> basket) {
+        this.basket = basket;
+    }
 
+    public List<Integer> getBasket() {
+        return basket;
+    }
+
+    public  void setBasket(List<Integer> basket) {
+        this.basket = basket;
+    }
 }
